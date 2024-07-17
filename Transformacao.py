@@ -12,9 +12,12 @@ breweries_data = pd.read_json(file_path)
 table = pa.Table.from_pandas(breweries_data)
 
 # Definindo o caminho para salvar o arquivo Parquet
-parquet_file_path = r"C:\\Users\\User\Desktop\BEES_Data_Engineer\Silver\breweries.parquet"
+base_path = r"C:\\Users\\User\Desktop\BEES_Data_Engineer\Silver\breweries"
 
-# Salvando a tabela Arrow como arquivo Parquet
-pq.write_table(table, parquet_file_path)
+# Especificando as colunas para particionar
+partition_cols = ['brewery_location']
 
-print(f"Dados salvos em formato Parquet em {parquet_file_path}")
+# Salvando a tabela Arrow como arquivo Parquet particionado
+pq.write_to_dataset(table, root_path=base_path, partition_cols=partition_cols)
+
+print(f"Dados salvos em formato Parquet em {base_path}")
