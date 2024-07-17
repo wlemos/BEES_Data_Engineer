@@ -15,7 +15,7 @@ table = pa.Table.from_pandas(breweries_data)
 base_path = r"C:\\Users\\User\Desktop\BEES_Data_Engineer\Silver\breweries"
 
 # Especificando as colunas para particionar
-partition_cols = ['brewery_location']
+partition_cols = ['state']
 
 # Salvando a tabela Arrow como arquivo Parquet particionado
 pq.write_to_dataset(table, root_path=base_path, partition_cols=partition_cols)
