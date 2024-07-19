@@ -12,7 +12,6 @@ secret_key = "minioadmin"
 bucket_name = "bronze"
 
 try:
-    # Criando um sistema de arquivos S3 com s3fs
     fs = s3fs.S3FileSystem(
         key=access_key,
         secret=secret_key,
@@ -20,21 +19,18 @@ try:
     )
     print("Sistema de arquivos S3 configurado")
 
-    # Fazendo a solicitação GET para a API
     response = requests.get(url)
     print("Requisição à API realizada")
 
-    # Verificando se a solicitação foi bem-sucedida
     if response.status_code == 200:
         print("Requisição bem-sucedida")
 
-        # Convertendo a resposta JSON em um dicionário Python
         breweries = response.json()
 
-        # Definindo o caminho do arquivo onde os dados serão salvos
+        # Caminho os dados serão salvos
         file_path = f"{bucket_name}/breweries.json"
 
-        # Gravando o DataFrame como um arquivo JSON no MinIO
+        # Gravação no MinIO
         with fs.open(file_path, 'w') as file:
             json.dump(breweries, file, indent=4)
         print(f"Dados salvos em {file_path}")
