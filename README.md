@@ -63,7 +63,7 @@ Após a execução do Pipeline os Buckets do MinIO devem conter os itens em cada
 # Monitoramento Pipeline
 - Registrar os logs detalhados de cada etapa
 - Alertas por E-mail
-    - Configurar para envio de email caso o Pipeline falhou
+    - Configurar para envio de email caso o Pipeline falhe
 
 
 
