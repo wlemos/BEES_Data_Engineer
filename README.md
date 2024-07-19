@@ -39,19 +39,35 @@ docker-compose up -d
 
 ### Passo 4: Acessando as URLs
 
-`Airflow`
-*http://localhost:8080/home*
-*`username: admin`*
-*`password: admin`*
+*Airflow*
+http://localhost:8080/home
+- `username`: admin
+- `password`: admin
 
-`MinIO`
-*http://localhost:9001/login*
-*`username: minioadmin`*
-*`password: minioadmin`*
+*MinIO*
+http://localhost:9001/login
+- `username`: minioadmin
+- `password`: minioadmin
 
 ### Passo 5: Execução do Pipeline
 Executar o pipeline `api_data_pipeline`.
 Após a execução do Pipeline os Buckets do MinIO devem conter os itens em cada camada.
+
+
+# Monitoramento Qualidades
+- Validação do esquema
+    - Verificiar se os dados recebidos possuem o esquema esperado
+- Validação dos valores
+    - Verificar a consistência dos dados, se campos obrigatórios não estão nulos
+
+# Monitoramento Pipeline
+- Registrar os logs detalhados de cada etapa
+- Alertas por E-mail
+    - Configurar para envio de email caso o Pipeline falhou
+
+
+
+
 
 
 Este `README.md` deve ajudar a configurar e executar o projeto.
