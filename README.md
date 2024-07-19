@@ -39,13 +39,11 @@ docker-compose up -d
 
 ### Passo 4: Acessando as URLs
 
-*Airflow*
-http://localhost:8080/home
+*Airflow* - http://localhost:8080/home
 - `username`: admin
 - `password`: admin
 
-*MinIO*
-http://localhost:9001/login
+*MinIO* - http://localhost:9001/login
 - `username`: minioadmin
 - `password`: minioadmin
 
